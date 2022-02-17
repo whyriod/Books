@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model BookViewModel
+
+<h1>The Books</h1>
+
+@foreach (Books x in Model.Books)
+{
+    <h3>@x.Title</h3>
+    <ul>
+        <li>@x.Author</li>
+        <li>@x.Publisher</li>
+        <li>@x.Publisher</li>
+        <li>@x.Isbn</li>
+        <li>@x.Classification</li>
+        <li>@x.Category</li>
+        <li>@x.PageCount</li>
+        <li>@x.Price</li>
+
+    </ul>
+}
+
+<div page-blah="@Model.PageInfo">
+
+</div>
