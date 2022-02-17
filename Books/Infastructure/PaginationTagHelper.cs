@@ -31,6 +31,12 @@ namespace Books.Infastructure
         public PageInfo PageBlah { get; set; }
         public string PageAction { get; set; }
 
+        public string PageClass { get; set; }
+        public bool PageClassEnabled { get; set; }
+        public string PageClassNormal { get; set; }
+        public string PageClassSelected { get; set; }
+
+
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             IUrlHelper uh = uhf.GetUrlHelper(Vc);
@@ -40,6 +46,12 @@ namespace Books.Infastructure
             {
                 TagBuilder tb = new TagBuilder("a");
                 tb.Attributes["href"] = uh.Action(PageAction, new {PageNum = i});
+                if (PageClassEnabled)
+                {
+                    tb.AddCssClass(PageClass);
+                    tb.AddCssClass(i == PageBlah.CurrentPage ? PageClassSelected : PageClassNormal);
+                }
+                tb.AddCssClass(PageClass);
                 tb.InnerHtml.Append(i.ToString());
 
                 final.InnerHtml.AppendHtml(tb);
