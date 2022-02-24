@@ -17,16 +17,21 @@ namespace Books.Controllers
 
         public HomeController(IBookstoreRepository r) => repo = r;
 
-        public IActionResult Index(int pageNum = 1)
+        public IActionResult Index(string category, int pageNum = 1)
         {
             int pageSize = 10;
 
             var x = new BookViewModel
             {
-                Books = repo.BookRepo.OrderBy(b => b.Title).Skip((pageNum - 1) * pageSize).Take(pageSize),
+                Books = repo.BookRepo
+                .Where(c => c.Category == category || category == null)
+                .OrderBy(b => b.Title)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
                 PageInfo = new PageInfo
                 {
-                    TotalNumBooks = repo.BookRepo.Count(),
+                    TotalNumBooks =
+                        category == null ? repo.BookRepo.Count() : repo.BookRepo.Where(x => x.Category == category).Count(),
                     BooksPerPage = pageSize,
                     CurrentPage = pageNum
                 }

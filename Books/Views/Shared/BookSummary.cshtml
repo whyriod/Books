@@ -8,7 +8,7 @@
     <div class="bg-light p-1">
         <h3>@Model.Title</h3>
         <span class="badge bg-info" style="float:left">
-            @Model.Author 
+            @Model.Author
         </span>
     </div>
 
@@ -21,4 +21,11 @@
         <li>Price: @Model.Price</li>
 
     </ul>
+
+    <form method="post" asp-page="/Cart">
+        <input type="hidden" asp-for="@Model.BookId"/>
+        <span class="card-text">
+            <button type="submit" class="btn btn-success btn-sm float-end"></button>
+        </span>
+    </form>
 </div>

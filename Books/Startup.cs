@@ -39,6 +39,9 @@ namespace Books
 
             //Use Repo stuff
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
+
+            //Let us use razor pages.
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -58,11 +61,23 @@ namespace Books
 
                 //Endpoints are executed in order. Short circuit
 
+                //Category and Page
+                endpoints.MapControllerRoute(
+                    name: "CategoryPage",
+                    pattern:"{category}/Page{PageNum}",
+                    defaults: new { controller = "Home", action = "Index" });
+
                 //Pagination View
                 endpoints.MapControllerRoute(
                     name: "Pagination",
                     pattern: "Page{PageNum}",
-                    defaults: new { controller = "Home", action = "Index" });
+                    defaults: new { controller = "Home", action = "Index"});
+
+                //Only Category
+                endpoints.MapControllerRoute(
+                    name: "Category",
+                    pattern: "{category}/Page{PageNum}",
+                    defaults: new { controller = "Home", action = "Index", PageNum = 1 });
 
                 //Default
                 endpoints.MapControllerRoute(
@@ -70,6 +85,7 @@ namespace Books
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 //Could use endpoints.MapDefaultControllerRoute(); For default
 
+                endpoints.MapRazorPages();
             });
         }
     }
