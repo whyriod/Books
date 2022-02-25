@@ -22,7 +22,7 @@
                 <td>@x.Book.Title</td>
                 <td>@x.Quantity</td>
                 <td>@x.Book.Price</td>
-                <td>(@x.Quantity * @x.Book.Price)</td>
+                <td>@(x.Quantity * x.Book.Price)</td>
             </tr>
         }
     </tbody>
@@ -34,3 +34,6 @@
         </tr>
     </tfoot>
 </table>
+<div>
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
+</div>
