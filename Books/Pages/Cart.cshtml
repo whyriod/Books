@@ -15,10 +15,22 @@
         </tr>
     </thread>
 
-@*    <tbody>
-        @foreach (var x in Model.Basket)
+    <tbody>
+        @foreach (var x in Model.Basket.Items)
         {
-
+            <tr>
+                <td>@x.Book.Title</td>
+                <td>@x.Quantity</td>
+                <td>@x.Book.Price</td>
+                <td>(@x.Quantity * @x.Book.Price)</td>
+            </tr>
         }
-    </tbody>*@
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="3">Total: </td>
+            <td>@Model.Basket.CalculateTotal().ToString("c")</td>
+        </tr>
+    </tfoot>
 </table>

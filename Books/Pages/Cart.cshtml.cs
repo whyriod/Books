@@ -19,8 +19,9 @@ namespace Books.Pages
 
         public Basket Basket { get; set; }
 
-        public void OnGet()
+        public void OnGet(Basket b)
         {
+            Basket = b;
         }
         public IActionResult OnPost(int bookId)
         {

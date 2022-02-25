@@ -42,6 +42,10 @@ namespace Books
 
             //Let us use razor pages.
             services.AddRazorPages();
+
+            //Sessions
+            services.AddDistributedMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,7 +58,11 @@ namespace Books
             //use wwwroot
             app.UseStaticFiles();
 
+            //More Sessions Stuff
+            app.UseSession();
+
             app.UseRouting();
+
 
             app.UseEndpoints(endpoints =>
             {
