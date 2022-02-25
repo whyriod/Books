@@ -83,7 +83,9 @@ namespace Books
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-                //Could use endpoints.MapDefaultControllerRoute(); For default
+                //Could use
+                endpoints.MapDefaultControllerRoute(); 
+                // For default
 
                 endpoints.MapRazorPages();
             });

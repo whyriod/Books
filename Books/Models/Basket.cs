@@ -7,9 +7,10 @@ namespace Books.Models
 {
     public class Basket
     {
+        //Set up and initalize the thing.
         public List<BasketItem> Items = new List<BasketItem>();
 
-        public void AddItem(Books b, int q) 
+        public void AddItem(Book b, int q) 
         {
             BasketItem bi = Items.Where(p => p.Book.BookId == b.BookId).First();
 
@@ -29,7 +30,7 @@ namespace Books.Models
 
         public double CalculateTotal()
         {
-            double total = Items.Sum(x => x.Quantity * 25) // need to change to actual price later.
+            double total = Items.Sum(x => x.Quantity * 25); // need to change to actual price later.
 
             return total;
         }
@@ -39,7 +40,7 @@ namespace Books.Models
     public class BasketItem
     {
         public int ID { get; set; }
-        public Books Book { get; set; }
+        public Book Book { get; set; }
         public int Quantity { get; set; }
     }
 }

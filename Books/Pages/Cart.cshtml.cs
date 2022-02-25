@@ -22,9 +22,13 @@ namespace Books.Pages
         public void OnGet()
         {
         }
-        public void OnPost()
+        public IActionResult OnPost(int bookId)
         {
-            Books Book 
+            var book = repo.BookRepo.FirstOrDefault(x => x.BookId == bookId);
+            Basket = new Basket();
+            Basket.AddItem(book, 1);
+
+            return RedirectToPage();
         }
     }
 }

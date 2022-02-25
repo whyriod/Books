@@ -7,7 +7,7 @@ namespace Books.Models.ViewModels
 {
     public class BookViewModel
     {
-        public IQueryable<Books> Books { get; set; }
+        public IQueryable<Book> Books { get; set; }
         public PageInfo PageInfo { get; set; }
     }
 }

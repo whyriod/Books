@@ -9,6 +9,6 @@ namespace Books.Models
     {
         private BookstoreContext _context { get; set;}
         public EFBookstoreRepository(BookstoreContext b) => _context = b;
-        public IQueryable<Books> BookRepo => _context.Books;
+        public IQueryable<Book> BookRepo => _context.Books;
     }
 }
