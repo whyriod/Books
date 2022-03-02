@@ -10,7 +10,7 @@ namespace Books.Models
         //Set up and initalize the thing.
         public List<BasketItem> Items { get; set; } = new List<BasketItem>();
 
-        public void AddItem(Book b, int q) 
+        public virtual void AddItem(Book b, int q) 
         {
             BasketItem bi = Items.Where(p => p.Book.BookId == b.BookId).FirstOrDefault();
 
@@ -28,7 +28,17 @@ namespace Books.Models
             }
         }
 
-        public double CalculateTotal()
+        public virtual void RemoveItem(Book b)
+        {
+            Items.RemoveAll(x => x.Book.BookId == b.BookId);
+        }
+
+        public virtual void ClearBasket()
+        {
+            Items.Clear();
+        }
+
+        public virtual double CalculateTotal()
         {
             double total = Items.Sum(x => x.Quantity * x.Book.Price); // need to change to actual price later.
 
