@@ -26,9 +26,9 @@
 
                 <td class="text-center">
                     <form method="post" asp-page-handler="Remove">
-                        <input type="hidden" name="BookId" value="@x.Book.BookId"/>
-                        <input type="hidden" name="ReturnUrl"value="@Model.ReturnUrl" />
-                        <btn type="submit" class="btn btn-sm btn-danger">Remove</btn>
+                        <input type="hidden" name="bookId" value="@x.Book.BookId"/>
+                        <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+                        <button type="submit" class="btn btn-sm btn-danger">Remove</button>
                     </form>
                 </td>
             </tr>
@@ -44,4 +44,5 @@
 </table>
 <div>
     <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
+    <a class="btn btn-primary" asp-action="Checkout" asp-controller="Buy">Checkout</a>
 </div>

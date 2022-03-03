@@ -16,22 +16,22 @@ namespace Books.Models
         [BindNever]
         public ICollection<BasketItem> Items { get; set; }
 
-        [Required(ErrorMessage ="Please enter a name:")]
+        [Required(ErrorMessage = "Please enter a name")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Please enter the first address line:")]
+        [Required(ErrorMessage = "Please enter the first address line")]
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
         public string AddressLine3 { get; set; }
 
-        [Required(ErrorMessage = "Please enter a city:")]
+        [Required(ErrorMessage = "Please enter a city")]
         public string City { get; set; }
 
-        [Required(ErrorMessage = "Please enter a state:")]
+        [Required(ErrorMessage = "Please enter a state")]
         public string State { get; set; }
         public string Zip { get; set; }
 
-        [Required(ErrorMessage = "Please enter a Country:")]
+        [Required(ErrorMessage = "Please enter a Country")]
         public string Country { get; set; }
     }
 }

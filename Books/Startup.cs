@@ -40,6 +40,7 @@ namespace Books
 
             //Use Repo stuff
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
+            services.AddScoped<IBuyRepository, EFBuyRepository>();
 
             //Let us use razor pages.
             services.AddRazorPages();
@@ -67,7 +68,6 @@ namespace Books
             app.UseSession();
 
             app.UseRouting();
-
 
             app.UseEndpoints(endpoints =>
             {
