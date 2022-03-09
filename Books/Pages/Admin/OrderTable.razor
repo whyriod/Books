@@ -1,0 +1,57 @@
+﻿<table class="table table-sm table-striped table-bordered">
+
+    <thead>
+        <tr>
+            <th colspan="5" class="text-center">@TableTitle</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Purchases?.Count() > 0)
+        {
+            @foreach (Purchase p in Purchases)
+            {
+                <tr>
+                    <td>@p.Name</td>
+                    <td>@p.AddressLine1</td>
+                    <td>@p.City</td>
+                    <td>@p.State</td>
+                    <td>@p.Zip</td>
+                </tr>
+
+                @foreach (BasketItem b in p.Items)
+                {
+                <tr>
+                    <td colspan="1"></td>
+                    <td>@b.Book.Title</td>
+                    <td>@b.Book.Author</td>
+                    <td>@b.Book.Price</td>
+                    <td>@b.Quantity</td>
+                </tr>
+                }
+
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5" class="text-center">No Orders</td>
+            </tr>
+        }
+     </tbody>
+</table>
+
+@code {
+
+    [Parameter]
+    public string TableTitle { get; set; } = "Orders";
+
+    [Parameter]
+    public IEnumerable<Purchase> Purchases { get; set; }
+
+    [Parameter]
+    public String ButtonLabel { get; set; } = "Shipped";
+
+    [Parameter]
+    public EventCallback<int> OrderSelected { get; set; }
+}
