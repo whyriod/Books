@@ -2,7 +2,7 @@
 
     <thead>
         <tr>
-            <th colspan="5" class="text-center">@TableTitle</th>
+            <th colspan="6" class="text-center">@TableTitle</th>
         </tr>
     </thead>
 
@@ -17,12 +17,17 @@
                     <td>@p.City</td>
                     <td>@p.State</td>
                     <td>@p.Zip</td>
+                    <td>
+                        <button class="btn btn-sm btn-danger" @onclick="@(x => OrderSelected.InvokeAsync(p.PurchaseId))">
+                            @ButtonLabel
+                        </button>
+                    </td>
                 </tr>
 
                 @foreach (BasketItem b in p.Items)
                 {
                 <tr>
-                    <td colspan="1"></td>
+                    <td colspan="2"></td>
                     <td>@b.Book.Title</td>
                     <td>@b.Book.Author</td>
                     <td>@b.Book.Price</td>
@@ -35,7 +40,7 @@
         else
         {
             <tr>
-                <td colspan="5" class="text-center">No Orders</td>
+                <td colspan="6" class="text-center">No Orders</td>
             </tr>
         }
      </tbody>

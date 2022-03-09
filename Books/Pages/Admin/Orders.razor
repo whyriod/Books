@@ -1,9 +1,9 @@
 ﻿@page "/admin/orders"
 @inherits OwningComponentBase<IBuyRepository>
 
-<OrderTable TableTitle="Shipped Orders" Purchases="ShippedOrders" ButtonLabel="Reset" OrderSelected="ResetOrder"></OrderTable>
-
 <OrderTable TableTitle="UnShipped Orders" Purchases="UnShippedOrders" ButtonLabel="Ship" OrderSelected="ShipOrder"></OrderTable>
+
+<OrderTable TableTitle="Shipped Orders" Purchases="ShippedOrders" ButtonLabel="Reset" OrderSelected="ResetOrder"></OrderTable>
 
 <button class="btn btn-info" @onclick="@(x => UpdateData())">Refresh Data</button>
 

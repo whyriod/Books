@@ -19,7 +19,8 @@ namespace Books.Migrations
                     City = table.Column<string>(nullable: false),
                     State = table.Column<string>(nullable: false),
                     Zip = table.Column<string>(nullable: true),
-                    Country = table.Column<string>(nullable: false)
+                    Country = table.Column<string>(nullable: false),
+                    Shipped = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -52,25 +53,6 @@ namespace Books.Migrations
                         principalColumn: "PurchaseId",
                         onDelete: ReferentialAction.Restrict);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_BasketItem_BookId",
-                table: "BasketItem",
-                column: "BookId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_BasketItem_PurchaseId",
-                table: "BasketItem",
-                column: "PurchaseId");
-        }
-
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
-            migrationBuilder.DropTable(
-                name: "BasketItem");
-
-            migrationBuilder.DropTable(
-                name: "Purchases");
         }
     }
 }
