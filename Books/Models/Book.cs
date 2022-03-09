@@ -13,7 +13,9 @@ namespace Books.Models
         [Key]
         [Required]
         public long BookId { get; set; }
+        [Required]
         public string Title { get; set; }
+        [Required]
         public string Author { get; set; }
         public string Publisher { get; set; }
         public string Isbn { get; set; }

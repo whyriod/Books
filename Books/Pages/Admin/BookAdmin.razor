@@ -2,7 +2,7 @@
 @page "/admin"
 @inherits OwningComponentBase<IBookstoreRepository>
 
-<table class="table table-sm table-striped table-bordered">
+<table class="table table-hover table-sm table-striped table-bordered">
     <thead>
         <tr>
             <th>Book Id</th>
@@ -26,11 +26,11 @@
                     </td>
 
                      <td>
-                        <NavLink class="btn btn-info btn-sm" href="@GetEditUrl(b.BookId)">Edit</NavLink>
+                        <NavLink class="btn btn-warning btn-sm" href="@GetEditUrl(b.BookId)">Edit</NavLink>
                     </td>
 
                     <td>
-                        <button class="btn btn-danger btn-sm" @onclick="@(x => RemoveBook(b))"></button>
+                        <button class="btn btn-danger btn-sm" @onclick="@(x => RemoveBook(b))">Delete</button>
                     </td>
                 </tr>
             }
@@ -44,6 +44,8 @@
         }
     </tbody>
 </table>
+
+<NavLink class="btn btn-primary" href="/admin/books/create">Create</NavLink>
 
 @code {
     public IBookstoreRepository repo => Service;
