@@ -9,6 +9,8 @@
     }
 </style>
 
+<h3>Its Alive</h3>
+
 <h3 class="bg-@ThemeColor text-white text-center p-1">
     @TitleText a Book
 </h3>
@@ -17,62 +19,61 @@
 
     <DataAnnotationsValidator></DataAnnotationsValidator>
 
-        <div class="form-group">
-            <label>Book Id:</label>
-            <input class="form-control" value="@b.BookId" disabled />
-        </div>
+    <div class="form-group">
+        <label>Book Id:</label>
+        <input class="form-control" value="@b.BookId" disabled />
+    </div>
 
-        <div class="form-group">
-            <label>Title:</label>
-            <ValidationMessage For="@(() => b.Title)"></ValidationMessage>
-            <InputText class="form-control" @bind-Value="@b.Title" />
-        </div>
+    <div class="form-group">
+        <label>Title:</label>
+        <ValidationMessage For="@(() => b.Title)"></ValidationMessage>
+        <InputText class="form-control" @bind-Value="@b.Title" />
+    </div>
 
-        <div class="form-group">
-            <label>Author:</label>
-            <ValidationMessage For="@(() => b.Author)"></ValidationMessage>
-            <InputText class="form-control" @bind-Value="@b.Author" />
-        </div>
+    <div class="form-group">
+        <label>Author:</label>
+        <ValidationMessage For="@(() => b.Author)"></ValidationMessage>
+        <InputText class="form-control" @bind-Value="@b.Author" />
+    </div>
 
-        <div class="form-group">
-            <label>Publisher:</label>
-            <ValidationMessage For="@(() => b.Publisher)"></ValidationMessage>
-            <InputText class="form-control" @bind-Value="@b.Publisher" />
-        </div>
+    <div class="form-group">
+        <label>Publisher:</label>
+        <ValidationMessage For="@(() => b.Publisher)"></ValidationMessage>
+        <InputText class="form-control" @bind-Value="@b.Publisher" />
+    </div>
 
-        <div class="form-group">
-            <label>Category:</label>
-            <ValidationMessage For="@(() => b.Category)"></ValidationMessage>
-            <InputText class="form-control" @bind-Value="@b.Category" />
-        </div>
+    <div class="form-group">
+        <label>Category:</label>
+        <ValidationMessage For="@(() => b.Category)"></ValidationMessage>
+        <InputText class="form-control" @bind-Value="@b.Category" />
+    </div>
 
+    <div class="form-group">
+        <label>Classification:</label>
+        <ValidationMessage For="@(() => b.Classification)"></ValidationMessage>
+        <InputText class="form-control" @bind-Value="@b.Classification" />
+    </div>
 
-        <div class="form-group">
-            <label>Classification:</label>
-            <ValidationMessage For="@(() => b.Classification)"></ValidationMessage>
-            <InputNumber class="form-control" @bind-Value="@b.Classification" />
-        </div>
+    <div class="form-group">
+        <label>Page Count:</label>
+        <ValidationMessage For="@(() => b.PageCount)"></ValidationMessage>
+        <InputNumber class="form-control" @bind-Value="@b.PageCount" />
+    </div>
 
-        <div class="form-group">
-            <label>Page Count:</label>
-            <ValidationMessage For="@(() => b.PageCount)"></ValidationMessage>
-            <InputNumber class="form-control" @bind-Value="@b.PageCount" />
-        </div>
+    <div class="form-group">
+        <label>ISBN:</label>
+        <ValidationMessage For="@(() => b.Isbn)"></ValidationMessage>
+        <InputText class="form-control" @bind-Value="@b.Isbn" />
+    </div>
 
-        <div class="form-group">
-            <label>ISBN:</label>
-            <ValidationMessage For="@(() => b.Isbn)"></ValidationMessage>
-            <InputNumber class="form-control" @bind-Value="@b.Isbn" />
-        </div>
+    <div class="form-group">
+        <label>Price:</label>
+        <ValidationMessage For="@(() => b.Price)"></ValidationMessage>
+        <InputNumber class="form-control" @bind-Value="@b.Price" />
+    </div>
 
-        <div class="form-group">
-            <label>Price:</label>
-            <ValidationMessage For="@(() => b.Price)"></ValidationMessage>
-            <InputNumber class="form-control" @bind-Value="@b.Price" />
-        </div>
-
-        <button type="submit" class="btn btn-@ThemeColor">Save</button>
-        <NavLink class="btn btn-secondary" href="/admin/books">Cancel</NavLink>
+    <button type="submit" class="btn btn-@ThemeColor">Save</button>
+    <NavLink class="btn btn-secondary" href="/admin/books">Cancel</NavLink>
 
 </EditForm>
 
