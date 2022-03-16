@@ -14,8 +14,7 @@ namespace Books.Models
         {
         }
 
-        public BookstoreContext(DbContextOptions<BookstoreContext> options)
-            : base(options)
+        public BookstoreContext(DbContextOptions<BookstoreContext> options) : base(options)
         {
         }
 
