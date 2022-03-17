@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,6 +39,15 @@ namespace Books
                 options.UseSqlite(Configuration["ConnectionStrings:BookDbConnection"]);
             });
 
+            //For Identity connection
+            services.AddDbContext<AppIdentityDbContext>(options =>
+            {
+                options.UseSqlite(Configuration["ConnectionStrings:IdentityConnection"]);
+            });
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppIdentityDbContext>();
+
             //Use Repo stuff
             services.AddScoped<IBookstoreRepository, EFBookstoreRepository>();
             services.AddScoped<IBuyRepository, EFBuyRepository>();
@@ -71,6 +81,9 @@ namespace Books
             app.UseSession();
 
             app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
@@ -109,6 +122,10 @@ namespace Books
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
             });
+
+            //Seed the admin data
+            IdentitySeedData.EnsurePopulated(app);
+
         }
     }
 }

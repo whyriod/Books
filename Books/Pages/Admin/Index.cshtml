@@ -1,6 +1,9 @@
 ﻿@page "/admin"
 @model Books.Pages.Admin.IndexModel
 
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize] 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

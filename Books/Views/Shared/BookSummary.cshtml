@@ -10,7 +10,7 @@
 
     <div class="bg-light p-1">
         <h3>@Model.Title</h3>
-        <span class="badge bg-info" style="float:left">
+        <span class="badge rounded-pill bg-info" style="float:left">
             @Model.Author
         </span>
     </div>
@@ -22,7 +22,6 @@
         <li>Category: @Model.Category</li>
         <li>Page count: @Model.PageCount</li>
         <li>Price: @Model.Price</li>
-
     </ul>
 
     <form method="post" asp-page="/Cart">
